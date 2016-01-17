@@ -1,0 +1,23 @@
+{
+  "name": "oh-hell",
+  "description": "oh-hell game",
+  "main": "index.js",
+  "authors": [
+    "martinsuchen3557@gmail.com",
+    "victor.xiong24@gmail.com"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "oh-hell",
+    "card",
+    "game"
+  ],
+  "homepage": "https://github.com/victor-xiong/oh-hell",
+  "moduleType": [
+    "node"
+  ],
+  "private": true,
+  "devDependencies": {
+    "bootstrap": "~3.3.6"
+  }
+}

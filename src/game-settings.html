@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Game Settings</title>
+	<link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/src/css/cover.css">
+	<link rel="stylesheet" type="text/css" href="/src/css/index.css">
+</head>
+<body>
+	<div class="site-wrapper">
+		<div class="site-wrapper-inner">
+			<div class="cover-container">
+				<h1>Number of Players</h1>
+				<div id="line-padding"></div>
+				<input type="range" min="2" max="10" value="2" step="1" onchange="showValue(this.value)" style="padding: 20px" />
+				<h1 id="number">2</h1>
+				<div id="line-padding"></div>
+				<a class="btn btn-primary btn-lg" href="/src/index.html" role="button" id="btn-back">BACK</a>
+				<a id="btn-invisible" style="padding: 250px;"></a>
+				<a class="btn btn-primary btn-lg" href="#" role="button" id="btn-next">NEXT</a>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		function showValue(newVal) {
+			document.getElementById("number").innerHTML = newVal;
+		}
+	</script>
+	<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="/src/js/game-settings.js"></script>
+</body>
+</html>

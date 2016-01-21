@@ -4,9 +4,9 @@ module.exports = function(grunt) {
 		pkgFile: 'package.json',
 		eslint: {
 			target: [
-				'lib/*.js',
-				'src/*.js',
-				'test/*.js',
+				'lib/**/*.js',
+				'src/**/*.js',
+				'test/**/*.js',
 				'Gruntfile.js'
 			]
 		},

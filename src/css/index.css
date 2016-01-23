@@ -9,3 +9,8 @@ h1 {
 #line-padding {
 	padding: 10px;
 }
+
+#btn-group {
+	position: relative;
+	bottom: 0px;
+}

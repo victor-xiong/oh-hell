@@ -9,7 +9,9 @@ var total = [];
 var bids = [];
 var wins = [];
 var players = [];
+
 var state = 0;
+var stateUpperLimit;
 
 var gameSetting = $("#game-setting");
 var gameTable = $("#game-table");
@@ -22,10 +24,11 @@ function onNextButtonClicked() {
 	switch (state) {
 		case 0: // continue from 0-th page (setting page), show gameTable, hide gameSetting and gameResult
 			state = 1;
+
 			numOfPlayers = parseInt(number.html());
-			gameSetting.css("display", "none");
-			gameTable.css("display", "");
-			gameResult.css("display", "none");
+			stateUpperLimit = calculateStateUpperLimit(numOfPlayers);
+
+			showGameTablePage();
 
 			table = buildGameTable(numOfPlayers);
 			gameTable.append(table);
@@ -37,6 +40,15 @@ function onNextButtonClicked() {
 	}
 }
 
+function calculateStateUpperLimit(numOfPlayers) {
+	var top = (52 - 52 % numOfPlayers) / numOfPlayers;
+	// if numOfPlayers = 5, top = 10, count = 19 (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1)
+	// if numOfPlayers = 10, top = 5, count = 9 (1, 2, 3, 4, 5, 4, 3, 2, 1)
+	var count = top * 2 - 1;
+
+	return count + 1; // including last page which is gameResult page
+}
+
 function onBackButtonClicked() {
 	switch (state) {
 		case 0: // 0-th page is the game setting page, back should go back to game start page.
@@ -44,11 +56,27 @@ function onBackButtonClicked() {
 			break;
 		case 1: // navigate from 1st page to 0-th page, show gameSetting, hide gameTable and gameResult
 			state = 0;
-			gameSetting.css("display", "");
-			gameTable.css("display", "none");
-			gameResult.css("display", "none");
+			showGameSettingPage();
 		// TODO: more cases
 	}
+}
+
+function showGameSettingPage() {
+	gameSetting.css("display", "");
+	gameTable.css("display", "none");
+	gameResult.css("display", "none");
+}
+
+function showGameTablePage() {
+	gameSetting.css("display", "none");
+	gameTable.css("display", "");
+	gameResult.css("display", "none");
+}
+
+function showGameResultPage() {
+	gameSetting.css("display", "none");
+	gameTable.css("display", "none");
+	gameResult.css("display", "");
 }
 
 function buildGameTable(numOfPlayers) {

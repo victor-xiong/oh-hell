@@ -62,15 +62,15 @@ function onBackButtonClicked() {
 }
 
 function showGameSettingPage() {
-	gameSetting.css("display", "");
 	gameTable.css("display", "none");
 	gameResult.css("display", "none");
+	gameSetting.css("display", "");
 }
 
 function showGameTablePage() {
+	gameResult.css("display", "none");
 	gameSetting.css("display", "none");
 	gameTable.css("display", "");
-	gameResult.css("display", "none");
 }
 
 function showGameResultPage() {

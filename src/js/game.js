@@ -1,3 +1,5 @@
+"use strict";
+
 var numOfPlayers;
 var nextButton = $("#btn-next");
 var backButton = $("#btn-back");
@@ -17,6 +19,23 @@ var gameSetting = $("#game-setting");
 var gameTable = $("#game-table");
 var gameResult = $("#game-result");
 
+var show = function (page) {
+	// get pages that need to hide
+	let pages = [gameSetting, gameTable, gameResult];
+	let index = pages.indexOf(page);
+	pages.splice(index, 1);
+
+	// hide firstly
+	for (let i of pages) {
+		if (i.css("display") !== "none") {
+			i.css("display", "none");
+		}
+	}
+
+	// show the page
+	page.css("display", "");
+};
+
 nextButton.on("click", onNextButtonClicked);
 backButton.on("click", onBackButtonClicked);
 
@@ -28,7 +47,7 @@ function onNextButtonClicked() {
 			numOfPlayers = parseInt(number.html());
 			stateUpperLimit = calculateStateUpperLimit(numOfPlayers);
 
-			showGameTablePage();
+			show(gameTable);
 
 			table = buildGameTable(numOfPlayers);
 			gameTable.append(table);
@@ -56,27 +75,9 @@ function onBackButtonClicked() {
 			break;
 		case 1: // navigate from 1st page to 0-th page, show gameSetting, hide gameTable and gameResult
 			state = 0;
-			showGameSettingPage();
+			show(gameSetting);
 		// TODO: more cases
 	}
-}
-
-function showGameSettingPage() {
-	gameSetting.css("display", "");
-	gameTable.css("display", "none");
-	gameResult.css("display", "none");
-}
-
-function showGameTablePage() {
-	gameSetting.css("display", "none");
-	gameTable.css("display", "");
-	gameResult.css("display", "none");
-}
-
-function showGameResultPage() {
-	gameSetting.css("display", "none");
-	gameTable.css("display", "none");
-	gameResult.css("display", "");
 }
 
 function buildGameTable(numOfPlayers) {

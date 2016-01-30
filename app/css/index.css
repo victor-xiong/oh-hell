@@ -1,0 +1,39 @@
+
+#div-start {
+	padding-top: 30%;
+}
+
+#div-number-of-players {
+	padding-top: 30%;
+}
+
+#div-names-of-players {
+	padding-top: 30%;
+}
+
+#div-game-play {
+	padding-top: 30%;
+}
+
+#div-game-result {
+	padding-top: 30%;
+}
+
+#div-history {
+	padding-top: 30%;
+}
+
+#line-padding {
+	padding: 10px;
+}
+
+#btn-group {
+	position: relative;
+	bottom: 0px;
+}
+
+#game-table {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}

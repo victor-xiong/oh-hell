@@ -1,3 +1,4 @@
+/*
 "use strict";
 
 var numOfPlayers;
@@ -71,7 +72,7 @@ function calculateStateUpperLimit(numOfPlayers) {
 function onBackButtonClicked() {
 	switch (state) {
 		case 0: // 0-th page is the game setting page, back should go back to game start page.
-			window.location.href = "/src/index.html";
+			window.location.href = "/app/index.html";
 			break;
 		case 1: // navigate from 1st page to 0-th page, show gameSetting, hide gameTable and gameResult
 			state = 0;
@@ -132,3 +133,4 @@ function buildGameTable(numOfPlayers) {
 
 	return table;
 }
+*/

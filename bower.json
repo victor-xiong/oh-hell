@@ -17,10 +17,10 @@
     "node"
   ],
   "private": true,
-  "dependencies": {
+  "devDependencies": {
     "bootstrap": "~3.3.6",
     "jquery-ui": "~1.11.4",
     "angular": "~1.4.0",
-    "angular-route": "~1.4.0",
+    "angular-route": "~1.4.0"
   }
 }

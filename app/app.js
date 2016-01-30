@@ -13,4 +13,20 @@ angular.module('ohHell', [
 
 .config(['$routeProvider', function($routeProvider) {
     $routeProvider.otherwise({redirectTo: '/start'});
-}]);
+}])
+
+.factory('ohHellService', function() {
+    var ohHellService = {};
+
+    var numOfPlayers;
+
+    ohHellService.getNumOfPlayers = function() {
+        return numOfPlayers;
+    }
+
+    ohHellService.setNumOfPlayers = function(num) {
+        numOfPlayers = num;
+    }
+
+    return ohHellService;
+});

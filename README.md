@@ -1,5 +1,7 @@
-#oh-hell
+# OH-HELL Cards Playing Game
 
-Install Dependencies:
-    npm install
-    bower install
+## Install Dependencies:
+
+```
+npm install
+```

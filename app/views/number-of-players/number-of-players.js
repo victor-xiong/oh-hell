@@ -9,7 +9,7 @@ angular.module('ohHell.number-of-players', ['ngRoute'])
     });
 }])
 
-.controller('NumOfPlayersCtrl', ['$scope', function($scope) {
+.controller('NumOfPlayersCtrl', ['$scope', 'ohHellService', function($scope, ohHellService) {
     // https://docs.angularjs.org/api/ng/directive/select
     $scope.playerNumbers = {
         availableOptions: [
@@ -25,4 +25,9 @@ angular.module('ohHell.number-of-players', ['ngRoute'])
         ],
         selectedOption: {id: '5', name: '5 Players'}
     };
+
+    $scope.updateNumOfPlayers = function() {
+        ohHellService.setNumOfPlayers($scope.playerNumbers.selectedOption.id);
+    };
+
 }]);

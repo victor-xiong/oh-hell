@@ -22,11 +22,11 @@ angular.module('ohHell', [
 
     ohHellService.getNumOfPlayers = function() {
         return numOfPlayers;
-    }
+    };
 
     ohHellService.setNumOfPlayers = function(num) {
         numOfPlayers = num;
-    }
+    };
 
     return ohHellService;
 });

@@ -1,9 +1,9 @@
 <div id="div-number-of-players">
     <h1>NUMBER OF PLAYERS</h1>
-    <div id="line-padding"></div>
+    <div class="line-padding"></div>
     <div id="slider"></div>
     <h1 id="number">{{playerNumbers.selectedOption.id}}</h1>
-    <div id="line-padding"></div>
+    <div class="line-padding"></div>
 
     <!--TODO: Find a good looking AngularJS slider-->
     <select ng-options="option.name for option in playerNumbers.availableOptions track by option.id" ng-model="playerNumbers.selectedOption"></select>

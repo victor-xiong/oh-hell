@@ -11,4 +11,10 @@ angular.module('ohHell.names-of-players', ['ngRoute'])
 
 .controller('NamesOfPlayersCtrl', ['$scope', 'ohHellService', function($scope, ohHellService) {
     $scope.num = ohHellService.getNumOfPlayers();
+
+    $scope.names = [];
+    for (var i = 1; i <= $scope.num; i++) {
+        $scope.names.push({label: "Player " + i, value: ""});
+    }
+
 }]);

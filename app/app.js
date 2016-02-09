@@ -18,7 +18,8 @@ angular.module('ohHell', [
 .factory('ohHellService', function() {
     var ohHellService = {};
 
-    var numOfPlayers;
+    var numOfPlayers = null;
+    var namesOfPlayers = null;
 
     ohHellService.getNumOfPlayers = function() {
         return numOfPlayers;
@@ -26,6 +27,18 @@ angular.module('ohHell', [
 
     ohHellService.setNumOfPlayers = function(num) {
         numOfPlayers = num;
+    };
+
+    ohHellService.getNamesOfPlayers = function() {
+        return namesOfPlayers;
+    };
+
+    ohHellService.setNamesOfPlayers = function(names) {
+        namesOfPlayers = names;
+    };
+
+    ohHellService.clearNamesOfPlayers = function() {
+        namesOfPlayers = null;
     };
 
     return ohHellService;

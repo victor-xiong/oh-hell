@@ -12,9 +12,20 @@ angular.module('ohHell.names-of-players', ['ngRoute'])
 .controller('NamesOfPlayersCtrl', ['$scope', 'ohHellService', function($scope, ohHellService) {
     $scope.num = ohHellService.getNumOfPlayers();
 
-    $scope.names = [];
-    for (var i = 1; i <= $scope.num; i++) {
-        $scope.names.push({label: "Player " + i, value: ""});
+    // When navigate from numOfPlayers page, reset names to empty object.
+    if (ohHellService.getNamesOfPlayers() === null) {
+        $scope.names = [];
+        for (var i = 1; i <= $scope.num; i++) {
+            $scope.names.push({label: "Player " + i, value: ""});
+        }
+
+    } else {
+        // When navigate back from game play page, restore names.
+        $scope.names = ohHellService.getNamesOfPlayers();
     }
+
+    $scope.updateNamesOfPlayers = function() {
+        ohHellService.setNamesOfPlayers($scope.names);
+    };
 
 }]);

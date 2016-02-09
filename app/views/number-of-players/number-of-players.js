@@ -11,6 +11,8 @@ angular.module('ohHell.number-of-players', ['ngRoute'])
 
 .controller('NumOfPlayersCtrl', ['$scope', 'ohHellService', function($scope, ohHellService) {
     // https://docs.angularjs.org/api/ng/directive/select
+    $scope.numOfPlayers = ohHellService.getNumOfPlayers();
+
     $scope.playerNumbers = {
         availableOptions: [
             {id: '2', name: '2 Players'},
@@ -26,8 +28,15 @@ angular.module('ohHell.number-of-players', ['ngRoute'])
         selectedOption: {id: '5', name: '5 Players'}
     };
 
+    // Restore selection if there's already one.
+    if ($scope.numOfPlayers) {
+        $scope.playerNumbers.selectedOption.id = $scope.numOfPlayers;
+    }
+
+    // Clicking Next from number of players page should update numOfPlayers and clear namesOfPlayers.
     $scope.updateNumOfPlayers = function() {
         ohHellService.setNumOfPlayers($scope.playerNumbers.selectedOption.id);
+        ohHellService.clearNamesOfPlayers();
     };
 
 }]);

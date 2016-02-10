@@ -33,10 +33,21 @@ angular.module('ohHell.number-of-players', ['ngRoute'])
         $scope.playerNumbers.selectedOption.id = $scope.numOfPlayers;
     }
 
-    // Clicking Next from number of players page should update numOfPlayers and clear namesOfPlayers.
-    $scope.updateNumOfPlayers = function() {
-        ohHellService.setNumOfPlayers($scope.playerNumbers.selectedOption.id);
-        ohHellService.clearNamesOfPlayers();
+    $scope.goNextToPlayerNamesPage = function() {
+        var num = $scope.playerNumbers.selectedOption.id;
+
+        ohHellService.setNumOfPlayers(num);
+
+        var names = [];
+        for (var i = 1; i <= num; i++) {
+            names.push({label: "Player " + i, value: ""});
+        }
+        ohHellService.setNamesOfPlayers(names);
+    };
+
+    $scope.goBackToStartPage = function() {
+        ohHellService.resetNumOfPlayers();
+        ohHellService.resetNamesOfPlayers();
     };
 
 }]);

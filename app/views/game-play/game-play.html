@@ -1,7 +1,7 @@
 <div id="div-game-play">
     <h1>Let's Play {{numOfGameRounds}} Rounds for This Game</h1>
     <div ng-repeat="round in rounds">
-        <h3>{{round.name}}</h3>
+        <h3>{{round.name}} - ({{round.cards}} Cards)</h3>
         <table>
             <tr ng-repeat="name in names">
                 <td class="game-play-name">{{name.value}}</td>

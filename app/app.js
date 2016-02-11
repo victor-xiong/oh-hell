@@ -34,7 +34,14 @@ angular.module('ohHell', [
         this.numOfGameRounds = topRound * 2 - 1;
 
         for (var i = 1; i <= this.numOfGameRounds; i++) {
-            this.rounds.push({name: "ROUND " + i});
+            var cardNum = 0;
+            if (i > topRound) {
+                cardNum = topRound - (i - topRound);
+            } else {
+                cardNum = i;
+            }
+
+            this.rounds.push({name: "ROUND " + i, cards: cardNum});
         }
     };
 

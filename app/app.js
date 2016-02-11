@@ -18,14 +18,31 @@ angular.module('ohHell', [
 .factory('ohHellService', function() {
     var ohHellService = {};
 
-    var numOfPlayers;
+    ohHellService.numOfPlayers = 0;
+    ohHellService.namesOfPlayers = [];
 
     ohHellService.getNumOfPlayers = function() {
-        return numOfPlayers;
+        return this.numOfPlayers;
     };
 
     ohHellService.setNumOfPlayers = function(num) {
-        numOfPlayers = num;
+        this.numOfPlayers = num;
+    };
+
+    ohHellService.resetNumOfPlayers = function() {
+        this.numOfPlayers = 0;
+    };
+
+    ohHellService.getNamesOfPlayers = function() {
+        return this.namesOfPlayers;
+    };
+
+    ohHellService.setNamesOfPlayers = function(names) {
+        this.namesOfPlayers = names;
+    };
+
+    ohHellService.resetNamesOfPlayers = function() {
+        this.namesOfPlayers = [];
     };
 
     return ohHellService;

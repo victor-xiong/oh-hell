@@ -9,6 +9,6 @@ angular.module('ohHell.game-play', ['ngRoute'])
     });
 }])
 
-.controller('GamePlayCtrl', ['$scope', function($scope) {
-
+.controller('GamePlayCtrl', ['$scope', 'ohHellService', function($scope, ohHellService) {
+    $scope.names = ohHellService.getNamesOfPlayers();
 }]);

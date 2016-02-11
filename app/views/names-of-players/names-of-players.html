@@ -1,11 +1,27 @@
 <div id="div-names-of-players">
-    <h1>Fill Names of Players</h1>
-    <!--TODO: Add AngularJS forms for players' names-->
-    <h2>You selected {{num}} players</h2>
+    <h2>Fill the names of {{num}} players in order:</h2>
+
+    <form name="namesForm">
+        <div ng-repeat="name in names">
+            <input ng-model="name.value" class="form-control" placeholder="Write the name of {{name.label}}" />
+            <div class="line-padding"></div>
+        </div>
+    </form>
+
+    <div>
+        <h3>Names of Players are:</h3>
+        <div ng-repeat="name in names">
+            <span>{{name.value}}</span>
+        </div>
+    </div>
+
+    <div class="line-padding"></div>
+    <div class="line-padding"></div>
+
 </div>
 
 <div id="btn-group">
-    <a class="btn btn-primary btn-lg" role="button" id="btn-back" href="#/number-of-players">BACK</a>
+    <a class="btn btn-primary btn-lg" role="button" id="btn-back" href="#/number-of-players" ng-click="goBackToPlayerNumberPage()">BACK</a>
     <a id="btn-invisible" style="padding-left: 20%; padding-right: 20%;"></a>
-    <a class="btn btn-primary btn-lg" role="button" id="btn-next" href="#/game-play">NEXT</a>
+    <a class="btn btn-primary btn-lg" role="button" id="btn-next" href="#/game-play" ng-click="goNextToGamePlayPage()">NEXT</a>
 </div>

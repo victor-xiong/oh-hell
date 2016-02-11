@@ -1,19 +1,19 @@
 <div id="div-number-of-players">
-    <h1>NUMBER OF PLAYERS</h1>
+    <h1>NUMBER OF PLAYERS: {{playerNumbers.selectedOption.id}}</h1>
     <div class="line-padding"></div>
-    <div id="slider"></div>
-    <h1 id="number">{{playerNumbers.selectedOption.id}}</h1>
+    <form name="playerNumbersForm">
+        <select class="form-control" name="playerNumberSelect" id="playerNumberSelect" title="Choose a number" ng-options="option.name for option in playerNumbers.availableOptions track by option.id" ng-model="playerNumbers.selectedOption">
+        </select>
+    </form>
+
+    <div class="line-padding"></div>
     <div class="line-padding"></div>
 
-    <!--TODO: Find a good looking AngularJS slider-->
-    <form name="playerNumbersForm">
-        <select name="playerNumberSelect" id="playerNumberSelect" title="Choose a number" ng-options="option.name for option in playerNumbers.availableOptions track by option.id" ng-model="playerNumbers.selectedOption"></select>
-    </form>
 </div>
 
 <div id="btn-group">
-    <a class="btn btn-primary btn-lg" role="button" id="btn-back" href="#/start">BACK</a>
+    <a class="btn btn-primary btn-lg" role="button" id="btn-back" href="#/start" ng-click="goBackToStartPage()">BACK</a>
     <a id="btn-invisible" style="padding-left: 20%; padding-right: 20%;"></a>
-    <a class="btn btn-primary btn-lg" role="button" id="btn-next" href="#/names-of-players" ng-click="updateNumOfPlayers();">NEXT</a>
+    <a class="btn btn-primary btn-lg" role="button" id="btn-next" href="#/names-of-players" ng-click="goNextToPlayerNamesPage()">NEXT</a>
 </div>
 

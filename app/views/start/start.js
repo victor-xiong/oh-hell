@@ -9,6 +9,11 @@ angular.module('ohHell.start', ['ngRoute'])
     });
 }])
 
-.controller('StartCtrl', ['$scope', function($scope) {
+.controller('StartCtrl', ['$scope', 'ohHellService', function($scope, ohHellService) {
+
+    $scope.goNextToPlayerNumberPage = function() {
+        ohHellService.resetNumOfPlayers();
+        ohHellService.resetNamesOfPlayers();
+    };
 
 }]);

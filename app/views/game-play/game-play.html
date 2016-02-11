@@ -1,8 +1,19 @@
 <div id="div-game-play">
-    <h1>Add game table below</h1>
-    <!--TODO: Add AngularJS table below-->
-    <div ng-repeat="name in names">
-        <span>{{name.value}}</span>
+    <h1>Let's Play {{numOfGameRounds}} Rounds for This Game</h1>
+    <div ng-repeat="round in rounds">
+        <h3>{{round.name}}</h3>
+        <table>
+            <tr ng-repeat="name in names">
+                <td class="game-play-name">{{name.value}}</td>
+                <td class="game-play-bids"><input class="form-control" placeholder="bids for {{round.name}}" /></td>
+                <td class="td-padding"></td>
+                <td class="game-play-wins"><input class="form-control" placeholder="wins for {{round.name}}" /></td>
+                <td class="round-points">xx</td>
+                <td class="td-padding"></td>
+                <td class="total-points">TOTAL: xxx</td>
+            </tr>
+        </table>
+        <div class="line-padding"></div>
     </div>
 </div>
 

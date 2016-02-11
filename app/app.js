@@ -19,6 +19,8 @@ angular.module('ohHell', [
     var ohHellService = {};
 
     ohHellService.numOfPlayers = 0;
+    ohHellService.numOfGameRounds = 0;
+    ohHellService.rounds = [];
     ohHellService.namesOfPlayers = [];
 
     ohHellService.getNumOfPlayers = function() {
@@ -27,6 +29,21 @@ angular.module('ohHell', [
 
     ohHellService.setNumOfPlayers = function(num) {
         this.numOfPlayers = num;
+
+        var topRound = (52 - 52 % num) / num;
+        this.numOfGameRounds = topRound * 2 - 1;
+
+        for (var i = 1; i <= this.numOfGameRounds; i++) {
+            this.rounds.push({name: "ROUND " + i});
+        }
+    };
+
+    ohHellService.getNumOfGameRounds = function() {
+        return this.numOfGameRounds;
+    };
+
+    ohHellService.getRounds = function() {
+        return this.rounds;
     };
 
     ohHellService.resetNumOfPlayers = function() {

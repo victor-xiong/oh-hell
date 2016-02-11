@@ -11,4 +11,8 @@ angular.module('ohHell.game-play', ['ngRoute'])
 
 .controller('GamePlayCtrl', ['$scope', 'ohHellService', function($scope, ohHellService) {
     $scope.names = ohHellService.getNamesOfPlayers();
+
+    $scope.numOfGameRounds = ohHellService.getNumOfGameRounds();
+
+    $scope.rounds = ohHellService.getRounds();
 }]);

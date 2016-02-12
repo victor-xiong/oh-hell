@@ -22,6 +22,7 @@ angular.module('ohHell', [
     ohHellService.numOfGameRounds = 0;
     ohHellService.rounds = [];
     ohHellService.namesOfPlayers = [];
+    ohHellService.scores = [];
 
     ohHellService.getNumOfPlayers = function() {
         return this.numOfPlayers;
@@ -67,6 +68,14 @@ angular.module('ohHell', [
 
     ohHellService.resetNamesOfPlayers = function() {
         this.namesOfPlayers = [];
+    };
+
+    ohHellService.setScores = function(scores) {
+        this.scores = scores;
+    };
+
+    ohHellService.getScores = function() {
+        return this.scores;
     };
 
     return ohHellService;

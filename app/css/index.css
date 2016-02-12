@@ -37,3 +37,23 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.game-play-name {
+	width: 200px;
+}
+
+.game-play-bids .game-play-wins {
+	width: 200px;
+}
+
+.td-padding {
+	width: 20px;
+}
+
+.round-points {
+	width: 50px;
+}
+
+.total-points {
+	width: 100px;
+}

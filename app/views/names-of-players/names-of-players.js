@@ -15,7 +15,10 @@ angular.module('ohHell.names-of-players', ['ngRoute'])
 
     $scope.goNextToGamePlayPage = function() {
         ohHellService.setNamesOfPlayers($scope.names);
+        $scope._generateScores();
+    };
 
+    $scope._generateScores = function() {
         var numOfGameRounds = ohHellService.getNumOfGameRounds();
         var numOfPlayers = ohHellService.getNumOfPlayers();
         var namesOfPlayers = ohHellService.getNamesOfPlayers();

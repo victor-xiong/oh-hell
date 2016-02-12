@@ -30,7 +30,10 @@ angular.module('ohHell', [
 
     ohHellService.setNumOfPlayers = function(num) {
         this.numOfPlayers = num;
+        this._generateRounds(num);
+    };
 
+    ohHellService._generateRounds = function(num) {
         var topRound = (52 - 52 % num) / num;
         this.numOfGameRounds = topRound * 2 - 1;
 

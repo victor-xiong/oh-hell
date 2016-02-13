@@ -12,6 +12,7 @@ angular.module('ohHell.names-of-players', ['ngRoute'])
 .controller('NamesOfPlayersCtrl', ['$scope', 'ohHellService', function($scope, ohHellService) {
     $scope.num = ohHellService.getNumOfPlayers();
     $scope.names = ohHellService.getNamesOfPlayers();
+    $scope.showNextButton = false;
 
     $scope.goNextToGamePlayPage = function() {
         ohHellService.setNamesOfPlayers($scope.names);
@@ -52,6 +53,18 @@ angular.module('ohHell.names-of-players', ['ngRoute'])
 
     $scope.goBackToPlayerNumberPage = function() {
         ohHellService.setNumOfPlayers($scope.num);
+    };
+
+    $scope.updateNextButton = function() {
+        var nameNotExists = false;
+        for (var i = 0; i < $scope.names.length; i++) {
+            if ($scope.names[i].value === "") {
+                nameNotExists = true;
+                break;
+            }
+        }
+
+        $scope.showNextButton = !nameNotExists;
     };
 
 }]);

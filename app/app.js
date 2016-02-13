@@ -18,15 +18,68 @@ angular.module('ohHell', [
 .factory('ohHellService', function() {
     var ohHellService = {};
 
-    var numOfPlayers;
+    ohHellService.numOfPlayers = 0;
+    ohHellService.numOfGameRounds = 0;
+    ohHellService.rounds = [];
+    ohHellService.namesOfPlayers = [];
+    ohHellService.scores = [];
 
     ohHellService.getNumOfPlayers = function() {
-        return numOfPlayers;
-    }
+        return this.numOfPlayers;
+    };
 
     ohHellService.setNumOfPlayers = function(num) {
-        numOfPlayers = num;
-    }
+        this.numOfPlayers = num;
+        this._generateRounds(num);
+    };
+
+    ohHellService._generateRounds = function(num) {
+        var topRound = (52 - 52 % num) / num;
+        this.numOfGameRounds = topRound * 2 - 1;
+
+        for (var i = 1; i <= this.numOfGameRounds; i++) {
+            var cardNum = 0;
+            if (i > topRound) {
+                cardNum = topRound - (i - topRound);
+            } else {
+                cardNum = i;
+            }
+
+            this.rounds.push({name: "ROUND " + i, cards: cardNum});
+        }
+    };
+
+    ohHellService.getNumOfGameRounds = function() {
+        return this.numOfGameRounds;
+    };
+
+    ohHellService.getRounds = function() {
+        return this.rounds;
+    };
+
+    ohHellService.resetNumOfPlayers = function() {
+        this.numOfPlayers = 0;
+    };
+
+    ohHellService.getNamesOfPlayers = function() {
+        return this.namesOfPlayers;
+    };
+
+    ohHellService.setNamesOfPlayers = function(names) {
+        this.namesOfPlayers = names;
+    };
+
+    ohHellService.resetNamesOfPlayers = function() {
+        this.namesOfPlayers = [];
+    };
+
+    ohHellService.setScores = function(scores) {
+        this.scores = scores;
+    };
+
+    ohHellService.getScores = function() {
+        return this.scores;
+    };
 
     return ohHellService;
 });

@@ -1,29 +1,29 @@
 
 #div-start {
-	padding-top: 30%;
+	padding-top: 0;
 }
 
 #div-number-of-players {
-	padding-top: 30%;
+	padding-top: 0;
 }
 
 #div-names-of-players {
-	padding-top: 30%;
+	padding-top: 0;
 }
 
 #div-game-play {
-	padding-top: 30%;
+	padding-top: 0;
 }
 
 #div-game-result {
-	padding-top: 30%;
+	padding-top: 0;
 }
 
 #div-history {
-	padding-top: 30%;
+	padding-top: 0;
 }
 
-#line-padding {
+.line-padding {
 	padding: 10px;
 }
 
@@ -36,4 +36,24 @@
   width: 500px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.game-play-name {
+	width: 200px;
+}
+
+.game-play-bids .game-play-wins {
+	width: 200px;
+}
+
+.td-padding {
+	width: 20px;
+}
+
+.round-points {
+	width: 50px;
+}
+
+.total-points {
+	width: 100px;
 }

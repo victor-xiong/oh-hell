@@ -26,6 +26,7 @@ angular.module('ohHell.names-of-players', ['ngRoute'])
         var scores = [];
         var topRound = (52 - 52 % numOfPlayers) / numOfPlayers;
 
+        // TODO: Adjust roundBids/roundWins from string to int.
         // [{}, {}, ..., {}] there're numOfGameRounds objects.
         // Game round object's structure:
         //  [

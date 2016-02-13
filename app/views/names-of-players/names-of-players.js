@@ -12,6 +12,7 @@ angular.module('ohHell.names-of-players', ['ngRoute'])
 .controller('NamesOfPlayersCtrl', ['$scope', 'ohHellService', function($scope, ohHellService) {
     $scope.num = ohHellService.getNumOfPlayers();
     $scope.names = ohHellService.getNamesOfPlayers();
+    $scope.showNextButton = false;
 
     $scope.goNextToGamePlayPage = function() {
         ohHellService.setNamesOfPlayers($scope.names);
@@ -25,6 +26,34 @@ angular.module('ohHell.names-of-players', ['ngRoute'])
         var scores = [];
         var topRound = (52 - 52 % numOfPlayers) / numOfPlayers;
 
+        // TODO: Adjust roundBids/roundWins from string to int.
+        // [{}, {}, ..., {}] there're numOfGameRounds objects.
+        // Game round object's structure:
+        //  [
+        //      {
+        //          roundName: "ROUND 1",
+        //          cards: 1,
+        //          details: [
+        //              {playerName: "Chen", roundBids: "1", roundWins: "1", roundScore: 11, totalScore: 11},
+        //              {playerName: "Victor", roundBids: "0", roundWins: "0", roundScore: 10, totalScore: 10},
+        //              {playerName: "Jeremy", roundBids: "0", roundWins: "0", roundScore: 10, totalScore: 10},
+        //              {playerName: "Na", roundBids: "0", roundWins: "0", roundScore: 10, totalScore: 10},
+        //              {playerName: "Yaping", roundBids: "1", roundWins: "0", roundScore: 0, totalScore: 0}
+        //          ]
+        //      },
+        //      {
+        //          roundName: "ROUND 2",
+        //          cards: 2,
+        //          details: [
+        //              {playerName: "Chen", roundBids: "1", roundWins: "1", roundScore: 11, totalScore: 22},
+        //              {playerName: "Victor", roundBids: "0", roundWins: "0", roundScore: 10, totalScore: 20},
+        //              {playerName: "Jeremy", roundBids: "0", roundWins: "0", roundScore: 10, totalScore: 20},
+        //              {playerName: "Na", roundBids: "1", roundWins: "1", roundScore: 11, totalScore: 21},
+        //              {playerName: "Yaping", roundBids: "1", roundWins: "0", roundScore: 0, totalScore: 0}
+        //          ]
+        //      },
+        //      ... ...
+        //  ]
         for (var j = 1; j <= numOfGameRounds; j++) {
             var roundScores = [];
             for (var k = 0; k < numOfPlayers; k++) {
@@ -52,6 +81,18 @@ angular.module('ohHell.names-of-players', ['ngRoute'])
 
     $scope.goBackToPlayerNumberPage = function() {
         ohHellService.setNumOfPlayers($scope.num);
+    };
+
+    $scope.updateNextButton = function() {
+        var nameNotExists = false;
+        for (var i = 0; i < $scope.names.length; i++) {
+            if ($scope.names[i].value === "") {
+                nameNotExists = true;
+                break;
+            }
+        }
+
+        $scope.showNextButton = !nameNotExists;
     };
 
 }]);

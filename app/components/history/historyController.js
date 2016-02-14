@@ -4,7 +4,7 @@ angular.module('ohHell.history', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/history', {
-        templateUrl: 'views/history/history.html',
+        templateUrl: 'app/components/history/historyView.html',
         controller: 'HistoryCtrl'
     });
 }])

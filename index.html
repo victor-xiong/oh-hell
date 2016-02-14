@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="ohHell">
+<head>
+    <title>OH-HELL</title>
+    <link rel="stylesheet" type="text/css" href="/assets/libs/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/cover.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/index.css">
+</head>
+<body>
+
+    <div class="site-wrapper">
+        <div class="site-wrapper-inner">
+            <div class="cover-container">
+                <div ng-view></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/assets/libs/bower_components/angular/angular.js"></script>
+    <script src="/assets/libs/bower_components/angular-route/angular-route.js"></script>
+
+    <script src="/app/app.js"></script>
+    <script src="/app/components/home/homeController.js"></script>
+    <script src="/app/components/numOfPlayers/numOfPlayersController.js"></script>
+    <script src="/app/components/namesOfPlayers/namesOfPlayersController.js"></script>
+    <script src="/app/components/gamePlay/gamePlayController.js"></script>
+    <script src="/app/components/gameResult/gameResultController.js"></script>
+    <script src="/app/components/history/historyController.js"></script>
+
+</body>
+</html>

@@ -1,10 +1,10 @@
 'use strict';
 
-angular.module('ohHell.game-result', ['ngRoute'])
+angular.module('ohHell.gameResult', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/game-result', {
-        templateUrl: 'views/game-result/game-result.html',
+    $routeProvider.when('/gameResult', {
+        templateUrl: 'app/components/gameResult/gameResultView.html',
         controller: 'GameResultCtrl'
     });
 }])

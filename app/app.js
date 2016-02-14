@@ -3,16 +3,16 @@
 // Declare  app level module which depends on components and views
 angular.module('ohHell', [
     'ngRoute',
-    'ohHell.start',
-    'ohHell.number-of-players',
-    'ohHell.names-of-players',
-    'ohHell.game-play',
-    'ohHell.game-result',
+    'ohHell.home',
+    'ohHell.numOfPlayers',
+    'ohHell.namesOfPlayers',
+    'ohHell.gamePlay',
+    'ohHell.gameResult',
     'ohHell.history'
 ])
 
 .config(['$routeProvider', function($routeProvider) {
-    $routeProvider.otherwise({redirectTo: '/start'});
+    $routeProvider.otherwise({redirectTo: '/home'});
 }])
 
 .factory('ohHellService', function() {

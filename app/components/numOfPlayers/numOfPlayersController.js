@@ -1,10 +1,10 @@
 'use strict';
 
-angular.module('ohHell.number-of-players', ['ngRoute'])
+angular.module('ohHell.numOfPlayers', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/number-of-players', {
-        templateUrl: 'views/number-of-players/number-of-players.html',
+    $routeProvider.when('/numOfPlayers', {
+        templateUrl: 'app/components/numOfPlayers/numOfPlayersView.html',
         controller: 'NumOfPlayersCtrl'
     });
 }])

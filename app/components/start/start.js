@@ -4,7 +4,7 @@ angular.module('ohHell.start', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/start', {
-        templateUrl: 'views/start/start.html',
+        templateUrl: 'components/start/start.html',
         controller: 'StartCtrl'
     });
 }])

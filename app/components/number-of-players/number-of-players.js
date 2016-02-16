@@ -4,7 +4,7 @@ angular.module('ohHell.number-of-players', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/number-of-players', {
-        templateUrl: 'views/number-of-players/number-of-players.html',
+        templateUrl: 'components/number-of-players/number-of-players.html',
         controller: 'NumOfPlayersCtrl'
     });
 }])

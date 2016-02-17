@@ -4,7 +4,7 @@ angular.module('ohHell.game-play', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/game-play', {
-        templateUrl: 'views/game-play/game-play.html',
+        templateUrl: 'components/game-play/game-play.html',
         controller: 'GamePlayCtrl'
     });
 }])

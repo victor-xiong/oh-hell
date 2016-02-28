@@ -14,11 +14,7 @@ angular.module('ohHell.game-play', ['ngRoute'])
     var vm = this;
 
     vm.names = ohHellService.getNamesOfPlayers();
-
-    vm.numOfGameRounds = ohHellService.getNumOfGameRounds();
-
     vm.rounds = ohHellService.getRounds();
-
     vm.scores = ohHellService.getScores();
 
     vm.update = function() {

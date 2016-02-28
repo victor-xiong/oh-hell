@@ -8,6 +8,7 @@
         "node": true
     },
     "rules": {
-        "indent": 2
+        "indent": 2,
+        "angular/di": [0]
     }
 }

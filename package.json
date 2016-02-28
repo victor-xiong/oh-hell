@@ -1,6 +1,9 @@
 {
   "name": "oh-hell",
   "version": "0.0.0",
+  "engines": {
+    "node": "4.2.6"
+  },
   "description": "oh-hell game",
   "main": "index.js",
   "scripts": {
@@ -22,7 +25,7 @@
     "url": "https://github.com/victor-xiong/oh-hell/issues"
   },
   "homepage": "https://github.com/victor-xiong/oh-hell#readme",
-  "devDependencies": {
+  "dependencies": {
     "bower": "^1.7.2",
     "eslint": "^1.10.3",
     "eslint-config-angular": "^0.4.0",

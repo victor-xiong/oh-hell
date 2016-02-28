@@ -5,21 +5,24 @@ angular.module('ohHell.names-of-players', ['ngRoute'])
 .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/names-of-players', {
         templateUrl: 'components/names-of-players/names-of-players.html',
-        controller: 'NamesOfPlayersCtrl'
+        controller: 'NamesOfPlayersController',
+        controllerAs: 'NamesOfPlayersCtrl'
     });
 }])
 
-.controller('NamesOfPlayersCtrl', ['$scope', 'ohHellService', function($scope, ohHellService) {
-    $scope.num = ohHellService.getNumOfPlayers();
-    $scope.names = ohHellService.getNamesOfPlayers();
-    $scope.showNextButton = false;
+.controller('NamesOfPlayersController', ['ohHellService', function(ohHellService) {
+    var vm = this;
 
-    $scope.goNextToGamePlayPage = function() {
-        ohHellService.setNamesOfPlayers($scope.names);
-        $scope._generateScores();
+    vm.num = ohHellService.getNumOfPlayers();
+    vm.names = ohHellService.getNamesOfPlayers();
+    vm.showNextButton = false;
+
+    vm.goNextToGamePlayPage = function() {
+        ohHellService.setNamesOfPlayers(vm.names);
+        vm._generateScores();
     };
 
-    $scope._generateScores = function() {
+    vm._generateScores = function() {
         var numOfGameRounds = ohHellService.getNumOfGameRounds();
         var numOfPlayers = ohHellService.getNumOfPlayers();
         var namesOfPlayers = ohHellService.getNamesOfPlayers();
@@ -79,20 +82,20 @@ angular.module('ohHell.names-of-players', ['ngRoute'])
         ohHellService.setScores(scores);
     };
 
-    $scope.goBackToPlayerNumberPage = function() {
-        ohHellService.setNumOfPlayers($scope.num);
+    vm.goBackToPlayerNumberPage = function() {
+        ohHellService.setNumOfPlayers(vm.num);
     };
 
-    $scope.updateNextButton = function() {
+    vm.updateNextButton = function() {
         var nameNotExists = false;
-        for (var i = 0; i < $scope.names.length; i++) {
-            if ($scope.names[i].value === "") {
+        for (var i = 0; i < vm.names.length; i++) {
+            if (vm.names[i].value === "") {
                 nameNotExists = true;
                 break;
             }
         }
 
-        $scope.showNextButton = !nameNotExists;
+        vm.showNextButton = !nameNotExists;
     };
 
 }]);

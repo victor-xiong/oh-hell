@@ -5,21 +5,24 @@ angular.module('ohHell.game-play', ['ngRoute'])
 .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/game-play', {
         templateUrl: 'components/game-play/game-play.html',
-        controller: 'GamePlayCtrl'
+        controller: 'GamePlayController',
+        controllerAs: 'GamePlayCtrl'
     });
 }])
 
-.controller('GamePlayCtrl', ['$scope', 'ohHellService', function($scope, ohHellService) {
-    $scope.names = ohHellService.getNamesOfPlayers();
+.controller('GamePlayController', ['ohHellService', function(ohHellService) {
+    var vm = this;
 
-    $scope.numOfGameRounds = ohHellService.getNumOfGameRounds();
+    vm.names = ohHellService.getNamesOfPlayers();
 
-    $scope.rounds = ohHellService.getRounds();
+    vm.numOfGameRounds = ohHellService.getNumOfGameRounds();
 
-    $scope.scores = ohHellService.getScores();
+    vm.rounds = ohHellService.getRounds();
 
-    $scope.update = function() {
-        var scores = $scope.scores;
+    vm.scores = ohHellService.getScores();
+
+    vm.update = function() {
+        var scores = vm.scores;
 
         // Update the current round scores and calculate total score by each round.
         for (var i = 0; i < scores.length; i++) {

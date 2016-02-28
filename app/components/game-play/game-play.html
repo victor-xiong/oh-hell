@@ -1,5 +1,5 @@
 <div id="div-game-play">
-    <h1>Let's Play {{GamePlayCtrl.numOfGameRounds}} Rounds for This Game</h1>
+    <h1>Let's Play {{GamePlayCtrl.rounds.length}} Rounds for This Game</h1>
     <div ng-repeat="score in GamePlayCtrl.scores">
         <h3>{{score.roundName}} - ({{score.cards}} Cards)</h3>
         <table>

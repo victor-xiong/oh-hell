@@ -23,7 +23,7 @@ angular.module('ohHell.names-of-players', ['ngRoute'])
     };
 
     vm._generateScores = function() {
-        var numOfGameRounds = ohHellService.getNumOfGameRounds();
+        var rounds = ohHellService.getRounds();
         var numOfPlayers = ohHellService.getNumOfPlayers();
         var namesOfPlayers = ohHellService.getNamesOfPlayers();
         var scores = [];
@@ -57,7 +57,7 @@ angular.module('ohHell.names-of-players', ['ngRoute'])
         //      },
         //      ... ...
         //  ]
-        for (var j = 1; j <= numOfGameRounds; j++) {
+        for (var j = 1; j <= rounds.length; j++) {
             var roundScores = [];
             for (var k = 0; k < numOfPlayers; k++) {
                 roundScores[k] = {playerName: namesOfPlayers[k].value, roundBids: "", roundWins: "", roundScore: "", totalScore: ""};

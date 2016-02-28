@@ -1,6 +1,9 @@
 {
   "name": "oh-hell",
   "version": "0.0.0",
+  "engines": {
+    "node": "4.2.6"
+  },
   "description": "oh-hell game",
   "main": "index.js",
   "scripts": {

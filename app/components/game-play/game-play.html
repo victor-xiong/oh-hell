@@ -5,9 +5,9 @@
         <table>
             <tr ng-repeat="detail in score.details">
                 <td class="game-play-name">{{detail.playerName}}</td>
-                <td class="game-play-bids"><input class="form-control" ng-keyup="GamePlayCtrl.update()" ng-model="detail.roundBids" placeholder="bids for {{score.roundName}}" /></td>
+                <td class="game-play-bids"><input type="number" class="form-control" ng-keyup="GamePlayCtrl.update()" ng-model="detail.roundBids" placeholder="bids for {{score.roundName}}" /></td>
                 <td class="td-padding"></td>
-                <td class="game-play-wins"><input class="form-control" ng-keyup="GamePlayCtrl.update()" ng-model="detail.roundWins" placeholder="wins for {{score.roundName}}" /></td>
+                <td class="game-play-wins"><input type="number" class="form-control" ng-keyup="GamePlayCtrl.update()" ng-model="detail.roundWins" placeholder="wins for {{score.roundName}}" /></td>
                 <td class="round-points">{{detail.roundScore}}</td>
                 <td class="td-padding"></td>
                 <td class="total-points">TOTAL: {{detail.totalScore}}</td>

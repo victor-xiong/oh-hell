@@ -1,8 +1,8 @@
 <div id="div-number-of-players">
-    <h1>NUMBER OF PLAYERS: {{playerNumbers.selectedOption.id}}</h1>
+    <h1>NUMBER OF PLAYERS: {{NumOfPlayersCtrl.playerNumbers.selectedOption.id}}</h1>
     <div class="line-padding"></div>
     <form name="playerNumbersForm">
-        <select class="form-control" name="playerNumberSelect" id="playerNumberSelect" title="Choose a number" ng-options="option.name for option in playerNumbers.availableOptions track by option.id" ng-model="playerNumbers.selectedOption">
+        <select class="form-control" name="playerNumberSelect" id="playerNumberSelect" title="Choose a number" ng-options="option.name for option in NumOfPlayersCtrl.playerNumbers.availableOptions track by option.id" ng-model="NumOfPlayersCtrl.playerNumbers.selectedOption">
         </select>
     </form>
 
@@ -12,8 +12,8 @@
 </div>
 
 <div id="btn-group">
-    <a class="btn btn-primary btn-lg" role="button" id="btn-back" href="#/start" ng-click="goBackToStartPage()">BACK</a>
+    <a class="btn btn-primary btn-lg" role="button" id="btn-back" href="#/start" ng-click="NumOfPlayersCtrl.goBackToStartPage()">BACK</a>
     <a id="btn-invisible" style="padding-left: 20%; padding-right: 20%;"></a>
-    <a class="btn btn-primary btn-lg" role="button" id="btn-next" href="#/names-of-players" ng-click="goNextToPlayerNamesPage()">NEXT</a>
+    <a class="btn btn-primary btn-lg" role="button" id="btn-next" href="#/names-of-players" ng-click="NumOfPlayersCtrl.goNextToPlayerNamesPage()">NEXT</a>
 </div>
 

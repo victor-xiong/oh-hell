@@ -1,5 +1,4 @@
-<div id="div-game-play">
-    <h1>Let's Play {{GamePlayCtrl.rounds.length}} Rounds for This Game</h1>
+<!-- <div id="div-game-play">
     <div ng-repeat="score in GamePlayCtrl.scores">
         <h3>{{score.roundName}} - ({{score.cards}} Cards)</h3>
         <table>
@@ -21,4 +20,37 @@
     <a class="btn btn-primary btn-lg" role="button" id="btn-back" href="#/names-of-players">BACK</a>
     <a id="btn-invisible" style="padding-left: 20%; padding-right: 20%;"></a>
     <a class="btn btn-primary btn-lg" role="button" id="btn-next" href="#/game-result">NEXT</a>
+</div> -->
+
+<div id="div-game-play">
+    <h3>{{GamePlayCtrl.currentRound}} / {{GamePlayCtrl.totalRound}} - ({{GamePlayCtrl.cards}} Cards)</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Player Name</th>
+                <th>Bids</th>
+                <th>Wins</th>
+                <th>Current Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="detail in GamePlayCtrl.gameInfo.details">
+                <td class="game-play-name">{{ detail.playerName }}</td>
+                <td class="game-play-bids">
+                    <input type="number" class="form-control" value="0" ng-model="detail.currentBids"></input>
+                </td>
+                <td class="game-play-wins">
+                    <input type="number" class="form-control" value="0" ng-model="detail.currentWins"></input>
+                </td>
+                <td class="game-play-current-score">{{ detail.totalScore }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div id="btn-group">
+    <a class="btn btn-primary btn-lg" role="button" id="btn-back" href="#/names-of-players">BACK</a>
+    <a id="btn-invisible" style="padding-left: 20%; padding-right: 20%;"></a>
+    <a class="btn btn-primary btn-lg" role="button" id="btn-next" ng-click="GamePlayCtrl.update()">NEXT</a>
 </div>

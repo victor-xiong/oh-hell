@@ -83,7 +83,7 @@ angular.module('ohHell', [
      * @returns {Array}
      */
     ohHellService.getRounds = function() {
-        return this.rounds;
+        return (52 - 52 % this.numOfPlayers) / this.numOfPlayers;
     };
 
     ohHellService.resetNumOfPlayers = function() {

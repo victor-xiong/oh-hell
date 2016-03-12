@@ -14,38 +14,35 @@ angular.module('ohHell.game-play', ['ngRoute'])
     var vm = this;
 
     vm.names = ohHellService.getNamesOfPlayers();
-    vm.rounds = ohHellService.getRounds();
-    vm.scores = ohHellService.getScores();
+    vm.totalRound = ohHellService.getRounds();
+    vm.currentRound = 1;
+    vm.cards = 1;
+    vm.gameInfo = {
+        currentRound: vm.currentRound,
+        cards: vm.cards,
+        details: []
+    };
 
-    vm.update = function() {
-        var scores = vm.scores;
+    vm.names.forEach(function (name) {
+        var playerInfo = {
+            playerName: name.value,
+            currentBids: 0,
+            currentWins: 0,
+            totalScore: 0
+        };
+        vm.gameInfo.details.push(playerInfo);
+    });
 
-        // Update the current round scores and calculate total score by each round.
-        for (var i = 0; i < scores.length; i++) {
-            var details = scores[i].details;
-
-            for (var j = 0; j < details.length; j++) {
-                var detail = details[j];
-
-                if (parseInt(detail.roundBids) >= 0 && parseInt(detail.roundWins) >= 0) {
-
-                    if (detail.roundBids == detail.roundWins) {
-                        detail.roundScore = 10 + parseInt(detail.roundWins);
-                    } else {
-                        detail.roundScore = detail.roundWins;
-                    }
-
-                    if (i === 0) {
-                        detail.totalScore = detail.roundScore;
-                    } else {
-                        if (parseInt(scores[i - 1].details[j].totalScore) >= 0) {
-                            detail.totalScore = parseInt(detail.roundScore) + parseInt(scores[i - 1].details[j].totalScore);
-                        }
-                    }
-                }
-            }
-        }
-
+    vm.update = function () {
+        console.info(1);
+        vm.gameInfo.currentRound++;
+        vm.gameInfo.cards++;
+        vm.gameInfo.details.forEach(function (detail) {
+            detail.totalScore += (detail.currentBids === detail.currentWins) ? 10 : 0;
+            detail.totalScore += detail.currentWins;
+            detail.currentBids = 0;
+            detail.currentWins = 0;
+        });
     };
 
 }]);

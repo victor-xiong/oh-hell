@@ -5,13 +5,15 @@ angular.module('ohHell.start', ['ngRoute'])
 .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/start', {
         templateUrl: 'components/start/start.html',
-        controller: 'StartCtrl'
+        controller: 'StartController',
+        controllerAs: 'StartCtrl'
     });
 }])
 
-.controller('StartCtrl', ['$scope', 'ohHellService', function($scope, ohHellService) {
+.controller('StartController', ['ohHellService', function(ohHellService) {
+    var vm = this;
 
-    $scope.goNextToPlayerNumberPage = function() {
+    vm.goNextToPlayerNumberPage = function() {
         ohHellService.resetNumOfPlayers();
         ohHellService.resetNamesOfPlayers();
     };

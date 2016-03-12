@@ -5,7 +5,7 @@ module.exports = function(grunt) {
         eslint: {
             target: [
                 'app/*.js',
-                'app/views/**/*.js',
+                'app/components/**/*.js',
                 'test/**/*.js',
                 'Gruntfile.js',
                 'karma.conf.js'

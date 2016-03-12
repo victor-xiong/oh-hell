@@ -5,15 +5,18 @@ angular.module('ohHell.number-of-players', ['ngRoute'])
 .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/number-of-players', {
         templateUrl: 'components/number-of-players/number-of-players.html',
-        controller: 'NumOfPlayersCtrl'
+        controller: 'NumOfPlayersController',
+        controllerAs: 'NumOfPlayersCtrl'
     });
 }])
 
-.controller('NumOfPlayersCtrl', ['$scope', 'ohHellService', function($scope, ohHellService) {
-    // https://docs.angularjs.org/api/ng/directive/select
-    $scope.numOfPlayers = ohHellService.getNumOfPlayers();
+.controller('NumOfPlayersController', ['ohHellService', function(ohHellService) {
+    var vm = this;
 
-    $scope.playerNumbers = {
+    // https://docs.angularjs.org/api/ng/directive/select
+    vm.numOfPlayers = ohHellService.getNumOfPlayers();
+
+    vm.playerNumbers = {
         availableOptions: [
             {id: '2', name: '2 Players'},
             {id: '3', name: '3 Players'},
@@ -29,12 +32,12 @@ angular.module('ohHell.number-of-players', ['ngRoute'])
     };
 
     // Restore selection if there's already one.
-    if ($scope.numOfPlayers) {
-        $scope.playerNumbers.selectedOption.id = $scope.numOfPlayers;
+    if (vm.numOfPlayers) {
+        vm.playerNumbers.selectedOption.id = vm.numOfPlayers;
     }
 
-    $scope.goNextToPlayerNamesPage = function() {
-        var num = $scope.playerNumbers.selectedOption.id;
+    vm.goNextToPlayerNamesPage = function() {
+        var num = vm.playerNumbers.selectedOption.id;
 
         ohHellService.setNumOfPlayers(num);
 
@@ -45,7 +48,7 @@ angular.module('ohHell.number-of-players', ['ngRoute'])
         ohHellService.setNamesOfPlayers(names);
     };
 
-    $scope.goBackToStartPage = function() {
+    vm.goBackToStartPage = function() {
         ohHellService.resetNumOfPlayers();
         ohHellService.resetNamesOfPlayers();
     };

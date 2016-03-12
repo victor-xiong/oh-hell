@@ -1,13 +1,13 @@
 <div id="div-game-play">
-    <h1>Let's Play {{numOfGameRounds}} Rounds for This Game</h1>
-    <div ng-repeat="score in scores">
+    <h1>Let's Play {{GamePlayCtrl.rounds.length}} Rounds for This Game</h1>
+    <div ng-repeat="score in GamePlayCtrl.scores">
         <h3>{{score.roundName}} - ({{score.cards}} Cards)</h3>
         <table>
             <tr ng-repeat="detail in score.details">
                 <td class="game-play-name">{{detail.playerName}}</td>
-                <td class="game-play-bids"><input class="form-control" ng-keyup="update()" ng-model="detail.roundBids" placeholder="bids for {{score.roundName}}" /></td>
+                <td class="game-play-bids"><input class="form-control" ng-keyup="GamePlayCtrl.update()" ng-model="detail.roundBids" placeholder="bids for {{score.roundName}}" /></td>
                 <td class="td-padding"></td>
-                <td class="game-play-wins"><input class="form-control" ng-keyup="update()" ng-model="detail.roundWins" placeholder="wins for {{score.roundName}}" /></td>
+                <td class="game-play-wins"><input class="form-control" ng-keyup="GamePlayCtrl.update()" ng-model="detail.roundWins" placeholder="wins for {{score.roundName}}" /></td>
                 <td class="round-points">{{detail.roundScore}}</td>
                 <td class="td-padding"></td>
                 <td class="total-points">TOTAL: {{detail.totalScore}}</td>

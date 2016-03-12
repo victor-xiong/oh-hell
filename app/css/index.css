@@ -57,3 +57,7 @@
 .total-points {
 	width: 100px;
 }
+
+.disabled {
+    opacity: 0.5;
+}
